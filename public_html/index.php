@@ -61,7 +61,7 @@ $page = isset($_GET['page']) && in_array($_GET['page'], $seiten) ? $_GET['page']
 
   <main>
     <?php
-    $file = __DIR__ . "/{$page}.html";
+    $file = __DIR__ . "/{$page}.php";
     if (file_exists($file)) {
       include($file);
     } else {

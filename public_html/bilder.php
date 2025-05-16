@@ -1,39 +1,12 @@
+<?php
+$timestamp = filemtime("css/bilder.css");
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Samys Bilder</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background: #f9f9f9;
-            padding: 20px;
-        }
-        .gallery {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .bild {
-            margin-bottom: 30px;
-            padding: 10px;
-            background: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-        }
-        .bild img {
-            max-width: 100%;
-            max-height: 400px; 
-            object-fit: contain;
-            display: block;
-            margin: 0 auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        .bild p {
-            margin-top: 10px;
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="css/bilder.css?v=<?= $timestamp ?>">
 </head>
 <body>
     <div class="gallery" id="galerie">Lade Bilder…</div>
@@ -50,7 +23,9 @@
                     div.className = "bild";
 
                     div.innerHTML = `
-                        <img src="${eintrag.image}" alt="samy">
+                        <h3>Bild vom ${eintrag.datum}
+                        <small>(${eintrag.stichwoerter})</small></h3>
+                        <img src="${eintrag.bild}" alt="samy">
                         <p>${eintrag.text.replace(/\n/g, "<br>")}</p>
                     `;
 

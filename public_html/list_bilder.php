@@ -8,9 +8,17 @@ foreach ($files as $imagePath) {
 
     $beschreibung = file_exists($txtPath) ? file_get_contents($txtPath) : "Keine Beschreibung vorhanden.";
 
+    $teile = explode("_", $base); // ["samy", "15", "05", "2025", "1", "schlafen", "karton"]
+
+    $datum = (count($teile) >= 4) ? "{$teile[1]}.{$teile[2]}.{$teile[3]}" : "unbekannt";
+    $stichwoerter = array_slice($teile, 5); // ab Index 5 = Stichwörter
+    $stichwort_string = implode(", ", $stichwoerter);
+    
     $result[] = [
-        "image" => $imagePath,
-        "text" => $beschreibung
+        "bild" => $imagePath,
+        "text" => $beschreibung,
+        "datum" => $datum,
+        "stichwoerter" => $stichwort_string
     ];
 }
 
