@@ -1,4 +1,5 @@
 <?php
+include "init.php";
 // Standard-Titel, falls keiner gesetzt ist
 if (!isset($pageTitle)) {
     $pageTitle = "Samys Seite";
@@ -12,7 +13,7 @@ $mainCssVersion = filemtime($mainCss);
 $extraCssLink = "";
 if (isset($cssFile) && file_exists($cssFile)) {
     $extraCssVersion = filemtime($cssFile);
-    $extraCssLink = '<link rel="stylesheet" href="' . $cssFile . '?v=' . $extraCssVersion . '">' . PHP_EOL;
+    $extraCssLink = '<link rel="stylesheet" href="' . getBaseUrl() . $cssFile . '?v=' . $extraCssVersion . '">' . PHP_EOL;
 }
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ if (isset($cssFile) && file_exists($cssFile)) {
     <head>
         <meta charset="UTF-8">
         <title><?= htmlspecialchars($pageTitle) ?></title>
-        <link rel="stylesheet" href="<?= $mainCss ?>?v=<?= $mainCssVersion ?>">
+        <link rel="stylesheet" href="<?= getBaseUrl() . $mainCss ?>?v=<?= $mainCssVersion ?>">
         <?= $extraCssLink ?>
     </head>
     <body>

@@ -1,7 +1,6 @@
 <?php
 $pageTitle = "Samys Tagebuch";
 $cssFile = "css/texte.css";
-include "init.php";
 include "header.php";
 include "nav.php";
 ?>

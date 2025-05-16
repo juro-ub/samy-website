@@ -1,7 +1,6 @@
 <?php
 $pageTitle = "Samys Bilder";
 $cssFile = "css/bilder.css";
-include "init.php";
 include "header.php";
 include "nav.php";
 ?>

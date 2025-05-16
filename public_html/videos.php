@@ -1,7 +1,6 @@
 <?php
 $pageTitle = "Samys Videos";
 $cssFile = "css/videos.css";
-include "init.php";
 include "header.php";
 include "nav.php";
 ?>
