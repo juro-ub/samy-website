@@ -1,18 +1,14 @@
 <?php
-$timestamp = filemtime("css/videos.css");
+$pageTitle = "Samys Videos";
+$cssFile = "css/videos.css";
+include "init.php";
+include "header.php";
+include "nav.php";
 ?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Samys Videos</title>
-    <link rel="stylesheet" href="css/videos.css?v=<?= $timestamp ?>">
-</head>
-<body>
-    <div class="videos" id="videoliste">Lade Videos…</div>
+<div class="videos" id="videoliste">Lade Videos…</div>
 
-    <script>
-        fetch("list_videos.php")
+<script>
+    fetch("list_videos.php")
             .then(res => res.json())
             .then(videos => {
                 const container = document.getElementById("videoliste");
@@ -29,7 +25,7 @@ $timestamp = filemtime("css/videos.css");
                         Dein Browser unterstützt kein Video.
                     </video>
                     <p>${eintrag.text.replace(/\n/g, "<br>")}</p>
-                `   ;
+                `;
 
                     container.appendChild(div);
                 });
@@ -38,6 +34,4 @@ $timestamp = filemtime("css/videos.css");
                 document.getElementById("videoliste").textContent = "Fehler beim Laden der Videos.";
                 console.error(err);
             });
-    </script>
-</body>
-</html>
+</script>

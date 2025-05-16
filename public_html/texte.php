@@ -1,23 +1,17 @@
 <?php
-$timestamp = filemtime("css/texte.css");
+$pageTitle = "Samys Tagebuch";
+$cssFile = "css/texte.css";
+include "init.php";
+include "header.php";
+include "nav.php";
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Samy mein Schatzi</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/texte.css?v=<?= $timestamp ?>">
-    </head>
-    <body>
-        <div class="wrapper">
-            <h1>Willkommen in Samy's Welt</h1>
-            <h2>Hier findet ihr ein Tagebuch zu meinem lieben Samy.</h2>
-            <div id="eintragsliste">Lade Einträge...</div>
-        </div>
-    </body>
-     <script>
-        fetch("list_texte.php")
+<div class="wrapper">
+    <h1>Willkommen in Samy's Welt</h1>
+    <h2>Hier findet ihr ein Tagebuch zu meinem lieben Samy.</h2>
+    <div id="eintragsliste">Lade Einträge...</div>
+</div>
+<script>
+    fetch("list_texte.php")
             .then(res => res.json())
             .then(eintraege => {
                 const container = document.getElementById("eintragsliste");
@@ -39,6 +33,6 @@ $timestamp = filemtime("css/texte.css");
                 document.getElementById("eintragsliste").textContent = "Fehler beim Laden der Einträge.";
                 console.error(err);
             });
-    </script>
-</html>
+</script>
+
 

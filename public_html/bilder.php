@@ -1,20 +1,16 @@
 <?php
-$timestamp = filemtime("css/bilder.css");
+$pageTitle = "Samys Bilder";
+$cssFile = "css/bilder.css";
+include "init.php";
+include "header.php";
+include "nav.php";
 ?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Samys Bilder</title>
-    <link rel="stylesheet" href="css/bilder.css?v=<?= $timestamp ?>">
-</head>
-<body>
-    <div class="gallery" id="galerie">Lade Bilder…</div>
+<div class="gallery" id="galerie">Lade Bilder…</div>
 
-    <script>
-        fetch("list_bilder.php")
-            .then(res => res.json())
-            .then(bilder => {
+<script>
+    fetch("list_bilder.php")
+        .then(res => res.json())
+        .then(bilder => {
                 const galerie = document.getElementById("galerie");
                 galerie.innerHTML = "";
 
@@ -23,11 +19,11 @@ $timestamp = filemtime("css/bilder.css");
                     div.className = "bild";
 
                     div.innerHTML = `
-                        <h3>Bild vom ${eintrag.datum}
-                        <small>(${eintrag.stichwoerter})</small></h3>
-                        <img src="${eintrag.bild}" alt="samy">
-                        <p>${eintrag.text.replace(/\n/g, "<br>")}</p>
-                    `;
+                    <h3>Bild vom ${eintrag.datum}
+                    <small>(${eintrag.stichwoerter})</small></h3>
+                    <img src="${eintrag.bild}" alt="samy">
+                    <p>${eintrag.text.replace(/\n/g, "<br>")}</p>
+                `;
 
                     galerie.appendChild(div);
                 });
@@ -36,6 +32,4 @@ $timestamp = filemtime("css/bilder.css");
                 document.getElementById("galerie").textContent = "Fehler beim Laden der Bilder.";
                 console.error(err);
             });
-    </script>
-</body>
-</html>
+</script>
