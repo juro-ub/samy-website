@@ -34,3 +34,7 @@ include "nav.php";
                 console.error(err);
             });
 </script>
+
+<?php
+include "footer.php";
+?>

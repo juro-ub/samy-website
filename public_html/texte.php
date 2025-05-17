@@ -34,4 +34,6 @@ include "nav.php";
             });
 </script>
 
-
+<?php
+include "footer.php";
+?>
