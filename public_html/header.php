@@ -25,3 +25,12 @@ if (isset($cssFile) && file_exists($cssFile)) {
         <?= $extraCssLink ?>
     </head>
     <body>
+    <div class="samy-header-wrapper">
+        <div class="samy-header">
+          <img
+            src="<?= getBaseUrl() ?>layout/header.jpg"
+            alt="Das Leben von Samy"
+            class="samy-header-image"
+          >
+        </div>
+    </div>
